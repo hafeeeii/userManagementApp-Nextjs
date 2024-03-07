@@ -23,14 +23,14 @@ export default function RootLayout({
       <body className={inter.className}>
         <AppWrapper>
           <Toaster />
-          <div className="sticky top-0 sm:hidden block">
+          <div className="sticky top-0 md:hidden block">
             <Navbar />
           </div>
-          <div className="flex h-screen gap-[1.5vw] overflow-y-hidden">
-            <div className="min-w-[200px] sm:block hidden">
+          <div className="flex h-screen  overflow-y-hidden">
+            <div className=" md:block hidden">
               <Sidebar />
             </div>
-            <div className=" flex-grow ">{children}</div>
+            <div className=" flex-grow -500 ">{children}</div>
           </div>
         </AppWrapper>
       </body>

@@ -9,20 +9,21 @@ const Login = () => {
   let [name, setName] = useState("");
   let [password, setPassword] = useState("");
   let router = useRouter();
-  let{setIsLogged} = useAppContext()
+  let { setIsLogged } = useAppContext();
 
   let handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (name && password !== "demo") {
+
+    if (name === "demo" && password === "demo") {
+      router.push("/");
+      setIsLogged(true);
+    } else {
       toast.error("Invalid credentials! Please try Again");
-    } else{
-      router.push("/")
-      setIsLogged(true)
-    };
+    }
   };
   return (
-    <div className="antialiased bg-gray-200 text-gray-900 font-sans">
-      <div className="flex items-center h-screen w-full">
+    <div className="antialiased bg-gray-200 text-gray-900 font-sans  ">
+      <div className="flex md:items-center items-start pt-12 md:pt-0 w-full h-screen">
         <div className="w-full bg-white rounded shadow-lg p-8 m-4 md:max-w-sm md:mx-auto">
           <span className="block w-full text-xl uppercase font-bold mb-4">
             Login

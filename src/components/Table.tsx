@@ -4,9 +4,8 @@ import React, { useState } from "react";
 import Card from "./Card";
 import { useRouter } from "next/navigation";
 
-
 const Table = ({ userData }: { userData: UserData[] }) => {
-  const router = useRouter()
+  const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1);
   const itemPerPage = 5;
   const indexOfLastItem = currentPage * itemPerPage;
@@ -40,7 +39,6 @@ const Table = ({ userData }: { userData: UserData[] }) => {
     return pageNumbers;
   };
 
-  
   return (
     <div className="w-full h-screen flex flex-col items-center  ">
       <div className="my-10 hidden lg:block ">
@@ -69,8 +67,8 @@ const Table = ({ userData }: { userData: UserData[] }) => {
             {currentItems?.map((user, index) => (
               <tr
                 key={index}
-                className="border-b-2 border-gray-200 text-xs font-medium cursor-pointer"
-                onClick={()=>router.push(`/users/${user.id}`)}
+                className="border-b-2 border-gray-200 text-xs font-medium cursor-pointer hover:bg-gray-100"
+                onClick={() => router.push(`/users/${user.id}`)}
               >
                 <td className=" min-w-[16vw]  whitespace-nowrap  py-4 px-8 ">
                   {user?.name}
