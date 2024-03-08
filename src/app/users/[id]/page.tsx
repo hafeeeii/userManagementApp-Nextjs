@@ -11,7 +11,6 @@ const UserDetails = async ({
 }) => {
   let newId = parseInt(params.id);
   let data: UserData = await useFetch(`/users/${newId}`);
-  console.log(data, "this is singledata");
 
   return (
     <div className=" w-full h-screen bg-gray-200 p-2 sm:p-20 ">

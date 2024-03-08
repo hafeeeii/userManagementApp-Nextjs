@@ -13,6 +13,6 @@ export function AppWrapper({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function useAppContext(){
-    return useContext(AppContext)
+export function useAppContext() {
+  return useContext(AppContext);
 }

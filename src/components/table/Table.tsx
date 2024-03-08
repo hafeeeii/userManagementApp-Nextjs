@@ -1,7 +1,7 @@
 "use client";
 import { UserData } from "@/lib/type";
 import React, { useState } from "react";
-import Card from "./Card";
+import Card from "../card/Card";
 import { useRouter } from "next/navigation";
 
 const Table = ({ userData }: { userData: UserData[] }) => {
