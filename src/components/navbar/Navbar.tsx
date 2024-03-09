@@ -5,18 +5,19 @@ import React, { useState } from "react";
 import NavLink from "./NavLink";
 import { useAppContext } from "@/context";
 import NavbarSm from "./NavbarSm";
-import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 
 const Navbar = () => {
   const { isLogged, setIsLogged } = useAppContext();
   const [isClicked, setIsClicked] = useState(false);
+  let pathname = usePathname()
+
+  if(pathname === '/login') return;
 
   return (
-    <div className="sm:px-10 px-5 py-5 flex items-center bg-gray-200 justify-between w-full z-50 ">
-      <Link href="/" className="font-bold text-xl">
-        Logo
-      </Link>
-      <div className="md:flex gap-10  font-medium capitalize items-center hidden  ">
+    <div className="bg-white  sm:px-10 px-5 py-4 flex items-center  justify-end w-full z-50 rounded-b-lg shadow-sm  ">
+      <div className="md:flex gap-5  font-medium capitalize items-center hidden  ">
         {navlinks.map((link, index) => (
           <NavLink link={link.link} href={link.href} key={index} />
         ))}

@@ -1,12 +1,13 @@
 "use client";
 import { UserData } from "@/lib/type";
 import React, { useState } from "react";
-import Card from "../card/Card";
 import { useRouter } from "next/navigation";
+import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 
 const Table = ({ userData }: { userData: UserData[] }) => {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1);
+
   const itemPerPage = 5;
   const indexOfLastItem = currentPage * itemPerPage;
   const indexOfFirstItem = indexOfLastItem - itemPerPage;
@@ -18,47 +19,31 @@ const Table = ({ userData }: { userData: UserData[] }) => {
   const nextPage = () => {
     setCurrentPage(currentPage + 1);
   };
-  const totalPages = Math.ceil(userData.length / itemPerPage);
-  // FUNCTON TO RENDER NUMBER OF PAGES
-  const renderPageNumbers = () => {
-    let pageNumbers = [];
-    for (let i = 1; i <= totalPages; i++) {
-      pageNumbers.push(
-        <button
-          key={i}
-          onClick={() => setCurrentPage(i)}
-          disabled={currentPage === i}
-          className={` border py-1 px-5 text-xs ${
-            currentPage === i && "bg-gray-500 text-white"
-          }`}
-        >
-          {i}
-        </button>
-      );
-    }
-    return pageNumbers;
-  };
+  const totalPages = Math.ceil(userData?.length / itemPerPage);
 
   return (
-    <div className="w-full h-screen flex flex-col items-center  ">
-      <div className="my-10 hidden lg:block ">
-        <table className="leading-loose    ">
-          <thead className="capitalize text-xs  bg-gray-200 border-b-2  border-gray-400 ">
+    <div className="w-full h-screen md:h-fit flex flex-col  shadow-sm pb-4 rounded-lg ">
+      <h4 className="font-bold  text-lg  py-6 px-4 ">Users</h4>
+      <div className="scrollbar  overflow-x-auto  w-[100vw] md:w-[73vw] lg:w-[80vw] xl:w-full  ">
+
+      <div className="w-full px-4  ">
+        <table className="leading-loose   ">
+          <thead className="capitalize text-sm  bg-blue-50  ">
             <tr>
-              <th className="text-left whitespace-nowrap py-4 px-8 font-semibold tracking-wide  ">
-                Name <span className="xl:hidden"> & email</span>
+              <th className=" text-left whitespace-nowrap py-4 px-8  tracking-wide  ">
+                Name 
               </th>
-              <th className="text-left whitespace-nowrap py-4 px-8 font-semibold tracking-wide">
+              <th className=" text-left whitespace-nowrap py-4 px-8  tracking-wide">
                 UserName
               </th>
-              <th className="text-left whitespace-nowrap py-4 px-8 font-semibold tracking-wide hidden xl:block">
-                {" "}
+              <th className=" text-left whitespace-nowrap py-4 px-8  tracking-wide ">
+    
                 Email
               </th>
-              <th className="text-left whitespace-nowrap py-4 px-8 font-semibold tracking-wide">
+              <th className=" text-left whitespace-nowrap py-4 px-8  tracking-wide">
                 Phone
               </th>
-              <th className="text-left whitespace-nowrap py-4 px-8 font-semibold tracking-wide ">
+              <th className=" text-left whitespace-nowrap py-4 px-8  tracking-wide ">
                 Website
               </th>
             </tr>
@@ -67,23 +52,23 @@ const Table = ({ userData }: { userData: UserData[] }) => {
             {currentItems?.map((user, index) => (
               <tr
                 key={index}
-                className="border-b-2 border-gray-200 text-xs font-medium cursor-pointer hover:bg-gray-100"
+                className=" text-xs font-semibold cursor-pointer hover:bg-blue-50"
                 onClick={() => router.push(`/users/${user.id}`)}
               >
                 <td className=" min-w-[16vw]  whitespace-nowrap  py-4 px-8 ">
                   {user?.name}
-                  <div className="xl:hidden text-gray-500">{user?.email}</div>
+             
                 </td>
                 <td className="   min-w-[16vw] whitespace-nowrap  py-4 px-8 ">
                   {user?.username}
                 </td>
-                <td className="  min-w-[16vw]   whitespace-nowrap  py-4 px-8  hidden xl:block">
+                <td className="  min-w-[16vw]   whitespace-nowrap  py-4 px-8  ">
                   {user?.email}
                 </td>
                 <td className="  min-w-[16vw]  whitespace-nowrap  py-4 px-8 ">
                   {user?.phone}
                 </td>
-                <td className="  min-w-[16vw]  whitespace-nowrap  py-4 px-8  ">
+                <td className="  min-w-[10vw]  whitespace-nowrap  py-4 px-8  ">
                   {user?.website}
                 </td>
               </tr>
@@ -91,25 +76,32 @@ const Table = ({ userData }: { userData: UserData[] }) => {
           </tbody>
         </table>
       </div>
-      <Card data={currentItems} />
 
-      <div>
+      <div className="flex items-center justify-end p-5 ">
         <button
-          className="mr-2"
+          className="mr-2 bg-gray-200 px-2 py-1" 
           onClick={prevPage}
           disabled={currentPage === 1}
         >
-          ⬅️
+         <FaAngleDoubleLeft />
         </button>
-        {renderPageNumbers()}
+        <span className="text-xs text-gray-500 font-medium tracking-tight  ">
+          Page {currentPage} to {totalPages} of {userData.length} Entries
+        </span>
         <button
-          className="ml-2 "
+          className="ml-2 bg-gray-200 px-2 py-1"
           onClick={nextPage}
           disabled={indexOfLastItem >= userData.length}
         >
-          ➡️
+    <FaAngleDoubleRight />
         </button>
       </div>
+
+
+
+
+      </div>
+   
     </div>
   );
 };

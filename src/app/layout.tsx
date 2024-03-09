@@ -20,17 +20,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} bg-gray-100`}>
         <AppWrapper>
           <Toaster />
-          <div className="sticky top-0 md:hidden block">
-            <Navbar />
-          </div>
-          <div className="flex h-screen  overflow-y-hidden">
-            <div className=" md:block hidden">
+
+          <div className="flex h-screen gap-5  overflow-y-hidden md:mr-6 ">
+            <div className=" md:block hidden min-w-[15vw]">
               <Sidebar />
             </div>
-            <div className=" flex-grow -500 ">{children}</div>
+
+            <div className=" flex flex-col md:gap-4 md:w-[85vw] w-full ">
+              <Navbar />
+              <div className="bg-white">{children}</div>
+            </div>
           </div>
         </AppWrapper>
       </body>

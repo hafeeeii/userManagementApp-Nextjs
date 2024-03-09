@@ -2,6 +2,7 @@ export type Link = {
   link: string;
   href: string;
 };
+
 export type UserData = {
   id: string;
   name: string;
