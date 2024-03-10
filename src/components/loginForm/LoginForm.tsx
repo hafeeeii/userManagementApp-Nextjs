@@ -1,26 +1,35 @@
 "use client";
 
 import { signIn } from "next-auth/react";
-import React, { useRef } from "react";
+import { useRouter } from "next/navigation";
+import React, { useRef, useState } from "react";
+import toast from "react-hot-toast";
 
 const LoginForm = () => {
-  const username = useRef('')
-  const password = useRef('')
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const router = useRouter();
 
-  const submit = async ()=>{
-    
-    const result = await signIn('credentials',{
-      
-      username:username.current,
-      password:password.current,
-      redirect:true,
-      callbackUrl:'/'
-    })
-  }
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const res = await signIn("credentials", {
+      username,
+      password,
+      redirect: false,
+      callbackUrl: "/",
+    });
+
+    if (res?.ok) {
+      toast.success("Successfully Logged in! Redirecting...");
+      router.push("/");
+    } else {
+      toast.error("“Invalid credentials! Please try Again");
+    }
+  };
 
   return (
-    <form  className="mb-4  " onSubmit={submit}>
-   
+    <form className="mb-4  " onSubmit={onSubmit}>
       <div className="bg-white  py-5 px-5 rounded-lg shadow-sm">
         <div className="mb-5 md:w-full">
           <label
@@ -37,7 +46,7 @@ const LoginForm = () => {
             placeholder="Username"
             name="username"
             required
-            onChange={(e)=>username.current = e.target.value}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </div>
         <div className="mb-6 md:w-full">
@@ -54,7 +63,7 @@ const LoginForm = () => {
             placeholder="Password"
             name="password"
             required
-            onChange={(e)=>password.current = e.target.value}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
       </div>
