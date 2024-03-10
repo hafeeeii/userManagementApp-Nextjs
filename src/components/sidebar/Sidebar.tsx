@@ -11,7 +11,7 @@ const Sidebar = () => {
 
 
   return (
-    <div className="flex flex-col items-start h-full w-full bg-white  py-2 shadow-sm">
+    <div className="flex flex-col items-start h-full w-full bg-white  py-2 shadow-sm ">
       <h1 className="font-bold  text-xl  px-16">Somplifi</h1>
       <div className="w-[85%] mx-auto">
         <div className="flex items-center font-medium pb-5 pt-10 text-gray-400 text-xs px-3">

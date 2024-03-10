@@ -26,3 +26,9 @@ export type UserData = {
     bs: string;
   };
 };
+
+export type SessionData = {
+  username?: string;
+  isLoggedIn: boolean;
+};
+

@@ -13,7 +13,7 @@ const UserDetails = async ({
   let data: UserData = await useFetch(`/users/${newId}`);
 
   return (
-    <div className=" w-full h-fit p-2 sm:p-20 ">
+    <div className=" w-full h-fit p-2 sm:p-20 md:w-[82vw] ">
       <div className="flex gap-4 flex-wrap justify-center">
         <div className="bg-white w-fit py-2 px-7 rounded-sm capitalize shadow-md tracking-wide">
           <h4 className="font-bold">name:</h4>
