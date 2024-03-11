@@ -27,7 +27,7 @@ const Table = ({ userData }: { userData: UserData[] }) => {
       <div className="scrollbar  overflow-x-auto  w-[100vw] md:w-[73vw] lg:w-[80vw] xl:w-full  ">
 
       <div className="w-full px-4  ">
-        <table className="leading-loose   ">
+        <table className="leading-loose table-auto  ">
           <thead className="capitalize text-sm  bg-blue-50  ">
             <tr>
               <th className=" text-left whitespace-nowrap py-4 px-8  tracking-wide  ">

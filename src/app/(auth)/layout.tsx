@@ -21,7 +21,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={`${inter.className} bg-gray-100`}>
         <AuthProvider>
-          <div className="bg-white">{children}</div>
+          <div className="bg-white ">{children}</div>
 
           <Toaster />
         </AuthProvider>

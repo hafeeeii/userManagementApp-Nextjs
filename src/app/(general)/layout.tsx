@@ -30,7 +30,7 @@ export default async function RootLayout({
 
             <div className=" flex flex-col md:gap-4 md:w-[85vw] w-full ">
               <Navbar />
-              <div className="bg-white h-screen">{children}</div>
+              <div className="bg-white ">{children}</div>
             </div>
           </div>
 

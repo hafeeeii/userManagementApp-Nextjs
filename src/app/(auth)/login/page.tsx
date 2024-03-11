@@ -6,15 +6,15 @@ import LoginForm from "@/components/loginForm/LoginForm";
 
 const Login = () => {
   return (
-    <div className=" h-screen flex flex-col justify-center items-center px-10 ">
-      <div className=" ">
+    <div className=" h-screen flex flex-col  justify-center items-center bg-gray-200 md:px-10  w-full">
+      <div className=" sm:max-w-[450px] w-[90vw]  ">
         <h4 className="font-bold text-lg">Get&apos;s Started.</h4>
-        <p className="mt-2 mb-10 font-medium text-xs text-gray-500">
+        <p className="mt-2 mb-5 sm:mb-10 font-medium text-xs text-gray-500">
           Don&apos;t have an account?{" "}
           <span className="text-blue-700">Register</span>{" "}
         </p>
-        <div className="flex  gap-3">
-          <button className=" whitespace-nowrap flex gap-2 items-center px-4 py-4 border border-blue-700 font-semibold text-sm rounded-md">
+        <div className="flex gap-3 justify-center flex-wrap ">
+          <button className="w-80  lg:w-fit whitespace-nowrap flex gap-2 items-center p-4  border border-blue-700 font-semibold text-sm rounded-md">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 48 48"
@@ -40,15 +40,15 @@ const Login = () => {
             </svg>
             Sign In With Google
           </button>
-          <button className=" whitespace-nowrap flex gap-2 items-center px-4 py-4 border bg-blue-500 font-semibold text-sm rounded-md text-white">
+          <button className="w-80 lg:w-fit whitespace-nowrap flex gap-2 items-center p-4  bg-blue-500 font-semibold text-sm rounded-md text-white">
             <MdFacebook size={20} />
             Sign In With Facebook
           </button>
         </div>
         <div className="flex items-center gap-4 justify-center py-6">
-          <div className="h-[1px] w-32 bg-gray-200"></div>
+          <div className="h-[1px] w-32 bg-gray-300"></div>
           <p className="font-semibold text-gray-600">or</p>
-          <div className="h-[1px] w-32 bg-gray-200"></div>
+          <div className="h-[1px] w-32 bg-gray-300"></div>
         </div>
         <LoginForm />
       </div>

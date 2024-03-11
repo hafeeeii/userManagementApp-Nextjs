@@ -2,7 +2,7 @@
 
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import React, { useRef, useState } from "react";
+import React, {  useState } from "react";
 import toast from "react-hot-toast";
 
 const LoginForm = () => {
@@ -19,12 +19,14 @@ const LoginForm = () => {
       redirect: false,
       callbackUrl: "/",
     });
+    console.log(res)
 
     if (res?.ok) {
       toast.success("Successfully Logged in! Redirecting...");
-      router.push("/");
+      router.push("/")
+    ;
     } else {
-      toast.error("“Invalid credentials! Please try Again");
+      toast.error("Invalid credentials! Please try Again");
     }
   };
 
@@ -75,7 +77,7 @@ const LoginForm = () => {
         </label>
         <h4 className="text-blue-500">Forgot your password?</h4>
       </div>
-      <button className="w-full bg-blue-500 hover:bg-blue-600 text-white uppercase text-sm font-semibold px-4 py-5  rounded">
+      <button className=" w-full bg-blue-500 hover:bg-blue-600 text-white uppercase text-sm font-semibold px-4 py-5  rounded">
         Login
       </button>
     </form>

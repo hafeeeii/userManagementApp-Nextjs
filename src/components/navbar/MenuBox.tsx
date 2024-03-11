@@ -9,37 +9,40 @@ type MenuBoxProps = {
 };
 
 const MenuBox = ({ isClicked, setIsClicked }: MenuBoxProps) => {
-  function handleCloseBtn (){
-    setIsClicked((prev)=>!prev)
+  function handleCloseBtn() {
+    setIsClicked((prev) => !prev);
   }
   return (
-    <div className=" z-50  fixed top-0 left-0 w-full ">
+    <div>
       {isClicked && (
         <div className=" flex flex-col gap-4    font-medium capitalize items-center py-4 text-black bg-gray-100">
-         
-            <div >
-              <NavLink link="home" href="/" />
+          <div onClick={handleCloseBtn}>
+            <NavLink link="home" href="/" />
+          </div>
+          <div onClick={handleCloseBtn}>
+            <NavLink link="users" href="/users" />
+          </div>
+          {navlinks.map((link, index) => (
+            <div key={index} onClick={handleCloseBtn}>
+              <NavLink link={link.link} href={link.href} />
             </div>
-            <div>
-              <NavLink link="users" href="/users" />
-            </div>
-            {navlinks.map((link, index) => (
-              <div key={index}>
-                <NavLink link={link.link} href={link.href} />
-              </div>
-            ))}
+          ))}
 
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                signOut();
-              }}
-              className="bg-red-500 hover:bg-red-700 text-white uppercase text-sm font-semibold px-4 py-2 rounded"
-            >
-              Logout
-            </button>
-       
-          <p className="absolute top-2 right-3 bg-black text-white px-3 rounded-full">
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              signOut();
+              handleCloseBtn();
+            }}
+            className="bg-red-500 hover:bg-red-700 text-white uppercase text-sm font-semibold px-4 py-2 rounded"
+          >
+            Logout
+          </button>
+
+          <p
+            onClick={handleCloseBtn}
+            className="absolute top-2 right-3 bg-black text-white px-3 rounded-full"
+          >
             X
           </p>
         </div>
