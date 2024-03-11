@@ -10,7 +10,7 @@ const Error = () => {
           you seems to be lost!
         </h2>
         <p className="text-gray-700 text-sm">
-          The page you're looking for isn't availabe. <br /> Try searching again
+          The page you&apos;re looking for isn&apos;t availabe. <br /> Try searching again
           or use the Go Back button below.
         </p>
 
