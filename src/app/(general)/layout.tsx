@@ -30,7 +30,9 @@ export default async function RootLayout({
 
             <div className=" flex flex-col md:gap-4 md:w-[85vw] w-full   ">
               <Navbar />
-              <div className="bg-white p-2 rounded-lg ">{children}</div>
+              <div className="bg-white p-2 rounded-lg min-h-[50vh] ">
+                {children}
+              </div>
             </div>
           </div>
 

@@ -1,4 +1,3 @@
-
 import Table from "@/components/table/Table";
 import useFetch from "@/hooks/useFetch";
 
