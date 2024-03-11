@@ -5,9 +5,9 @@ import { FaArrowLeft } from "react-icons/fa";
 const Error = () => {
   return (
     <div className="w-full h-full flex justify-center items-center">
-      <div className="flex flex-col gap-8 px-6">
+      <div className="flex flex-col gap-8 px-2 sm:px-6">
         <h2 className="uppercase text-yellow-500 font-bold text-5xl">
-          you seems to be <br /> lost!
+          you seems to be lost!
         </h2>
         <p className="text-gray-700 text-sm">
           The page you're looking for isn't availabe. <br /> Try searching again
