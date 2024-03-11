@@ -21,16 +21,16 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-gray-100`}>
+      <body className={`${inter.className} md:bg-gray-100`}>
         <AuthProvider>
           <div className="flex h-screen gap-5  overflow-y-hidden md:mr-6 ">
             <div className=" md:block hidden min-w-[15vw]">
               <Sidebar />
             </div>
 
-            <div className=" flex flex-col md:gap-4 md:w-[85vw] w-full ">
+            <div className=" flex flex-col md:gap-4 md:w-[85vw] w-full   ">
               <Navbar />
-              <div className="bg-white ">{children}</div>
+              <div className="bg-white p-2 rounded-lg ">{children}</div>
             </div>
           </div>
 

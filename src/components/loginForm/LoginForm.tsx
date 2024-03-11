@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  
   const router = useRouter();
 
   const onSubmit = async (e: React.FormEvent) => {
@@ -49,6 +50,7 @@ const LoginForm = () => {
             name="username"
             required
             onChange={(e) => setUsername(e.target.value)}
+            value={username}
           />
         </div>
         <div className="mb-6 md:w-full">
@@ -66,6 +68,7 @@ const LoginForm = () => {
             name="password"
             required
             onChange={(e) => setPassword(e.target.value)}
+            value={password}
           />
         </div>
       </div>
